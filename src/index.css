@@ -19,33 +19,6 @@ html {
   min-height: 80rem;
 }
 
-header {
-  text-align: center;
-  margin: 3rem 0;
-}
-
-header img {
-  height: 5rem;
-  width: 10rem;
-  object-fit: cover;
-}
-
-header h1 {
-  margin: 0;
-  font-family: "Roboto Condensed", sans-serif;
-  font-size: 5rem;
-  background: linear-gradient(40deg, #ea00ff, #ea00ff, #03d5ff, #03d5ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-}
-
-header p {
-  margin: 0;
-  font-size: 1.25rem;
-  color: #8964b0;
-  font-family: "Roboto Condensed", sans-serif;
-}
 
 main {
   width: 90%;
@@ -58,6 +31,9 @@ main {
   border-radius: 6px;
   background-color: #140524;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+#core-concepts:hover {
+  box-shadow:0px 20px 20px #dad3e2;
 }
 
 main h2 {
@@ -117,15 +93,15 @@ main h2 {
   border: none;
   border-radius: 6px;
   background-color: transparent;
-  color: #a18aba;
+  color: #dad3e2;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; 
 }
 
 #examples menu button:hover {
-  background-color: #1b082f;
+  background-color: yellowgreen;
   color: #ebe7ef;
 }
 
@@ -147,4 +123,15 @@ main h2 {
 
 #tab-content code {
   font-size: 1rem;
+}
+
+.dynamicvalue{
+  background-color: #7c6990;
+  padding: 1rem;
+  border-radius: 10px;
+  color: yellow;
+}
+.dynamicvalue:hover{
+  box-shadow: 1px 5px 6px rgb(117, 182, 217) ;
+
 }

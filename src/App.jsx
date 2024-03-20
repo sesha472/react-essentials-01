@@ -1,69 +1,77 @@
 
-  import reactImg from './assets/react-core-concepts.png';
+  import Coreconcepts from './Components/CoreConcepts';
+import Header from './Components/Headercomponent/Header';
+import TabButton from './Components/TabButton';
+// import reactImg from './assets/react-core-concepts.png';
   // import reactIMg2 from './assets/components.png';
   import { CORE_CONCEPTS } from './data';
+  import { useState } from 'react';
+  import { EXAMPLES } from './data';
 
-
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core','importent'];
-function genrateRandomnumbers(max){
-  let num = Math.floor(Math.random ()*(max));
-  return num;
-}
- 
- const Header = () => {
-  const dynamicgenaraatoe=reactDescriptions[genrateRandomnumbers(reactDescriptions.length)]
-   return (
-    <header>
-        <img src={reactImg} alt="Stylized atom" />
-        <h1>React Essentials</h1>
-        <p>
-          {dynamicgenaraatoe} React concepts you will need for almost any app you are
-          going to build!
-        </p>
-                   
-      </header>
-   )
- }
  
 
- function Coreconcepts(props){
-  return(
-    <li>
-    <img src={props.img} alt={props.title}></img>
-    <h1>{props.title}</h1>
-    <p>{props.discrption}</p>
-    </li>
-    )
- }
- 
+  
  
 function App() {
+  const [selectedTopic, setselectedTopic] = useState(null);
+
+  function onClickhandler(selctedbutton){
+    setselectedTopic(selctedbutton);
+  }
+
+
   return (
     <div>
+
       <Header/>
       <main>
        <section id='core-concepts'>
-        <h2> Core concepts </h2>
+             <h2> Core concepts </h2>
+
         <ul>
-          <Coreconcepts title={CORE_CONCEPTS[0].title} 
-          discrption={CORE_CONCEPTS[0].description}
-          img={CORE_CONCEPTS[0].image}/>
-
-          <Coreconcepts title={CORE_CONCEPTS[1].title} 
-          discrption={CORE_CONCEPTS[1].description}
-          img={CORE_CONCEPTS[1].image}/>
-
-          <Coreconcepts title={CORE_CONCEPTS[2].title} 
-          discrption={CORE_CONCEPTS[2].description}
-          img={CORE_CONCEPTS[3].image}/>
-          
-          <Coreconcepts title={CORE_CONCEPTS[3].title} 
-          discrption={CORE_CONCEPTS[3].description}
-          img={CORE_CONCEPTS[3].image}/>
-          
-          
+          <Coreconcepts {...CORE_CONCEPTS[0]}/>
+          <Coreconcepts {...CORE_CONCEPTS[1]}/>
+          <Coreconcepts {...CORE_CONCEPTS[2]}/>
+          <Coreconcepts {...CORE_CONCEPTS[3]} />  
         </ul>
 
+       </section>
+       <section id="examples">
+        <h2>examples</h2>
+        <menu>
+        <TabButton isSlected={ selectedTopic === 'components'} handlerfunction={()=>onClickhandler('components')}> components</TabButton>
+        <TabButton isSlected={ selectedTopic === 'jsx'} handlerfunction={()=>onClickhandler('jsx')}> jsx</TabButton>
+        <TabButton  isSlected = {selectedTopic ==='props'}handlerfunction={()=>onClickhandler('props')}> props</TabButton>
+        <TabButton isSlected={selectedTopic === 'state'} handlerfunction={()=>onClickhandler('state')}> state</TabButton>
+        <TabButton isSlected={selectedTopic === 'reset'} handlerfunction={()=>setselectedTopic(null)}> reset</TabButton>
+
+
+        </menu>
+
+        
+          <p>
+            {selectedTopic}
+          </p>
+          
+          <div id='tab-content'>
+            {(selectedTopic ===null )? <h3>please selct the topic</h3>:( <>
+            <h3> {EXAMPLES[selectedTopic].title}</h3>
+            <p>{EXAMPLES[selectedTopic].description}</p>
+            <pre>
+              <code>
+              {EXAMPLES[selectedTopic].code}
+
+              </code>
+            </pre>
+            </>)}
+           
+
+          </div>
+
+        
+ 
+
+        
        </section>
       </main>
     </div>
