@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { EXAMPLES } from "../data";
-
+import TabButton from './TabButton';
 import Section from "./Section";
 import Tabs from "./Tabs";
 
@@ -33,19 +33,57 @@ const Examples = () => {
   return (
     <Section  id="examples" title="Examples">
       <Tabs 
-       selectedTopic={selectedTopic} 
-       onClickhandler={onClickhandler}
-       setselectedTopic={setselectedTopic} >
+      // ButtonContainer={Section}//we can use any custom identifier tag 
+      ButtonContainer="menu"
+      buttons={<>
+        <TabButton
+          isSlected={selectedTopic === "components"}
+          onClick={() => onClickhandler("components")}
+        >
+          
+          components
+        </TabButton>
+        <TabButton
+          isSlected={selectedTopic === "jsx"}
+          onClick={() => onClickhandler("jsx")}
+        >
+          
+          jsx
+        </TabButton>
+        <TabButton
+          isSlected={selectedTopic === "props"}
+          onClick={() => onClickhandler("props")}
+        >
+          props
+        </TabButton>
+        <TabButton
+          isSlected={selectedTopic === "state"}
+          onClick={() => onClickhandler("state")}
+        >
+          state
+        </TabButton>
+        <TabButton
+          isSlected={selectedTopic === "reset"}
+          onClick={() => setselectedTopic(null)}
+        >
+          reset
+        </TabButton> 
+        </>} 
+        >
        
-     {tabcontent}
 
       </Tabs>
+
+
+
+     {tabcontent}
+
      
       
 
       
 
-    </Section>
+   </Section>
   );
 };
 
