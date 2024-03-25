@@ -4,14 +4,11 @@ import TabButton from './TabButton';
 import Section from "./Section";
 import Tabs from "./Tabs";
 
-
 const Examples = () => {
   const [selectedTopic, setselectedTopic] = useState(null);
-
   function onClickhandler(selctedbutton) {
     setselectedTopic(selctedbutton);
   }
-  
 
   let tabcontent=<><p>{selectedTopic}</p>
 
@@ -28,19 +25,16 @@ const Examples = () => {
       </>
     )}
   </div></>
- 
-  
   return (
     <Section  id="examples" title="Examples">
       <Tabs 
       // ButtonContainer={Section}//we can use any custom identifier tag 
-      ButtonContainer="menu"
+      // ButtonContainer="menu"
       buttons={<>
         <TabButton
           isSlected={selectedTopic === "components"}
           onClick={() => onClickhandler("components")}
-        >
-          
+        >    
           components
         </TabButton>
         <TabButton

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 
-export default function Tabs({buttons,children ,ButtonContainer}) {
+export default function Tabs({buttons,children ,ButtonContainer="menu"}) {
     
   return (
     <>
