@@ -18,6 +18,7 @@ function App() {
      
       <main>
         <CoreConcept />
+        <h1>good</h1>
         <Examples/>
       </main>
     
